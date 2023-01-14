@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "webWorkerTsConfig": "tsconfig.worker.json"
           },
           "configurations": {
             "production": {
@@ -58,6 +59,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+
           "configurations": {
             "production": {
               "browserTarget": "demoAngularSqlLite:build:production"
@@ -65,8 +67,18 @@
             "development": {
               "browserTarget": "demoAngularSqlLite:build:development"
             }
+
           },
-          "defaultConfiguration": "development"
+
+          "defaultConfiguration": "development",
+          "options": {
+            "headers": {
+              "Cross-Origin-Opener-Policy":"same-origin",
+              "Cross-Origin-Embedder-Policy":"require-corp",
+              "Access-Control-Allow-Origin":"domain"
+
+            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -89,7 +101,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "webWorkerTsConfig": "tsconfig.worker.json"
           }
         }
       }
