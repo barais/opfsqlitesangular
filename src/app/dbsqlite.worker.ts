@@ -64,7 +64,7 @@ class DB {
     this.log('sqlite3 version', capi.sqlite3_libversion(), capi.sqlite3_sourceid());
     if (sqlite3.opfs) {
       console.error(sqlite3.opfs)
-      this.db = new sqlite3.oo1.OpfsDb('/mydb.sqlite3');
+      this.db = new oo.OpfsDb('/mydb.sqlite3');
       this.log('The OPFS is available.');
     } else {
       this.db = new oo.DB('/mydb.sqlite3', 'ct');
@@ -74,12 +74,12 @@ class DB {
 
     try {
       this.log('Create a table...');
-      this.db.exec('CREATE TABLE IF NOT EXISTS t(a,b)');
+      this.db.exec('CREATE TABLE IF NOT EXISTS t2(a,b)');
       this.log('Insert some data using exec()...');
       let i;
       for (i = 20; i <= 25; ++i) {
         this.db.exec({
-          sql: 'INSERT INTO t(a,b) VALUES (?,?)',
+          sql: 'INSERT INTO t2(a,b) VALUES (?,?)',
           bind: [i, i * 2],
         });
       }
